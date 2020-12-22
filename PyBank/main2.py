@@ -13,5 +13,8 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
 
+    date = []
+
     for row in csvreader:
-        print(row)
+        date.append(row[0:0])
+        print(f'{len(date)}')
