@@ -8,13 +8,23 @@ csvpath = os.path.join('Resources','budget_data.csv')
 #open() function returns a file object, here it is used to open the path we set to variable 'csvpath' as a new method csvfile
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=',')
+    next(csvfile) 
 
-    print(csvreader)
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+#assign variables as lists to find average change in PL
 
-    date = []
+    month_of_change = []
+    net_change_list = []
+
+    first_row = next(csvreader)
+    previous_net = int(first_row[1])
 
     for row in csvreader:
-        date.append(row[0:0])
-        print(f'{len(date)}')
+        net_change = int(row[1]) - previous_net
+        previous_net = int(row[1])
+        net_change_list = net_change_list + [net_change]
+        month_of_change = month_of_change + [row[0]]
+
+net_monthly_average = sum(net_change_list)/len(net_change_list)
+
+print(f'Average Change: ${net_monthly_average:.2f}') #round to 2 decimals places with ':.2f' as specified type in formatting
+
