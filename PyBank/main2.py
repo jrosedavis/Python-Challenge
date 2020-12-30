@@ -10,21 +10,29 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     next(csvfile) 
 
-#assign variables as lists to find average change in PL
+#greatest increase & decrease in profits over the entire period
+#assign variables as lists for date and profit/losses
 
-    month_of_change = []
-    net_change_list = []
+    dates = 0
+    date = []
+    PL = []
+    grt_incre = 0
+    grt_decre = 0
 
-    first_row = next(csvreader)
-    previous_net = int(first_row[1])
-
+#assign for loop to iterate over row in csv reader and add to lists
     for row in csvreader:
-        net_change = int(row[1]) - previous_net
-        previous_net = int(row[1])
-        net_change_list = net_change_list + [net_change]
-        month_of_change = month_of_change + [row[0]]
+        dates += 1
+        date.append(row[0])
+        PL.append(int(row[1]))
+#assign for loop to iterate in range function starting at 1 and stopping at integer specified by variable dates
+    for i in range(1, dates): 
+        difference = PL[i] - PL[i - 1] #calcuate the difference between the month before it and add this to total changes
+#apply an if statement to determine greatest increase and greatest decrease in profit
+        if difference > grt_incre:
+            grt_incre = difference
+            grt_incre_date = date[i]
+        elif difference < grt_decre: 
+            grt_decre = difference
+            grt_decre_date = date[i]
 
-net_monthly_average = sum(net_change_list)/len(net_change_list)
-
-print(f'Average Change: ${net_monthly_average:.2f}') #round to 2 decimals places with ':.2f' as specified type in formatting
-
+print(grt_incre_date, grt_incre)
