@@ -11,9 +11,9 @@ csvpath = os.path.join('Resources','budget_data.csv')
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=',')
     next(csvfile) #need to apply 'next' method to iterate past the fields, i.e. do not want length to include 'date'
-    title = 'Total Months:' + ' ' #string variable set due to syntax error for 'len' when passing string directly into format
+    title = 'Total Months:' #string variable set due to syntax error for 'len' when passing string directly into format
     file = csvfile.readlines()
-print(f'{title}{len(file)}')
+print(f'{title} {len(file)}')
 
 #Part 2: The net total amount of 'Profit/Losses' over the entire period
 with open(csvpath) as csvfile:
@@ -24,7 +24,7 @@ with open(csvpath) as csvfile:
     total = sum(numbers)
     print(f'Total: ${total}')
 
-#Part 3: Cacluate the changes in 'Profit/Losses over the entire period, then frin the average of those changes
+#Part 3: Cacluate the changes in 'Profit/Losses over the entire period, then find the average of those changes
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=',')
     next(csvfile) 
