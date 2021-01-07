@@ -63,11 +63,31 @@ print(f"O'Tooley: {int(o_final):.3f}% ({str(o_vote)})")
 print('-------------------------')
 
 #Part 4: Find the winner per election results and print winner
-if (k_vote>c_vote) and (k_vote>l_vote) and (k_vote>o_vote):
-    print("Winner: Khan")
+
+#Apply an If statement to all candidates to determine the winner of the election
+if (k_vote>c_vote) and (k_vote>l_vote) and (k_vote>o_vote): #if votes for Khan are greater than votes for Correy, Li, and O'Tooley...
+    print("Winner: Khan")#...then print Winner: Khan 
 if (c_vote>k_vote) and (c_vote>l_vote) and (c_vote>o_vote):
     print("Winner: Correy")
 if (l_vote>c_vote) and (l_vote>k_vote) and (l_vote>o_vote):
     print("Winner: Li")
 if (o_vote>c_vote) and (o_vote>l_vote) and (o_vote>k_vote):
     print("Winner: O'Tooley")
+
+#Part 4: Export results to a text file
+
+save_path = r"\Users\jrose\OneDrive\Desktop\2020 BootCamp\Homework\Homework3\Python-Challenge\PyPoll\Analysis\Analysis.txt"
+
+final_analysis = open(save_path, 'w')
+
+results = (f"\nElection Results\n"
+    f"-------------------------\n"
+    f"Total Votes: {len(file)}\n"
+    f"Kahn: 63.000% (2218231)\n"
+    f"Correy: 20.000% (704200)\n"
+    f"Li: 14.000% (2218231)\n"
+    f"O'Tooley: 3.000% (105630)\n"
+    f"Winner: Khan \n")
+
+final_analysis.write(results)
+final_analysis.close()

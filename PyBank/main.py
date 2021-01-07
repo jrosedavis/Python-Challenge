@@ -74,3 +74,20 @@ with open(csvpath) as csvfile:
 
 print(f'Greatest Increase in Profits: {grt_incre_date} $({grt_incre:.2f})')
 print(f'Greatest Decrease in Profits: {grt_decre_date} $({grt_decre:.2f})')
+
+#Part 4: Export results to a text file
+
+save_path = r"\Users\jrose\OneDrive\Desktop\2020 BootCamp\Homework\Homework3\Python-Challenge\PyBank\Analysis\Analysis.txt"
+
+final_analysis = open(save_path, 'w')
+
+results = (f"\nFinancial Analysis\n"
+    f"-------------------------\n"
+    f"Total Months: {len(file)}\n"
+    f"Total: ${total}\n"
+    f"Average Change: ${average_change:.2f}\n"
+    f"Greatest Increase in Profits: {grt_incre_date} $({grt_incre:.2f})\n"
+    f"Greatest Decrease in Profits: {grt_decre_date} $({grt_decre:.2f})\n")
+
+final_analysis.write(results)
+final_analysis.close()
