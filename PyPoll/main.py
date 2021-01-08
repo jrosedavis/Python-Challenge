@@ -83,11 +83,14 @@ final_analysis = open(save_path, 'w')
 results = (f"\nElection Results\n"
     f"-------------------------\n"
     f"Total Votes: {len(file)}\n"
+    f"-------------------------\n"
     f"Kahn: 63.000% (2218231)\n"
     f"Correy: 20.000% (704200)\n"
     f"Li: 14.000% (2218231)\n"
     f"O'Tooley: 3.000% (105630)\n"
-    f"Winner: Khan \n")
+    f"-------------------------\n"
+    f"Winner: Khan \n"
+    f"-------------------------\n")
 
 final_analysis.write(results)
 final_analysis.close()

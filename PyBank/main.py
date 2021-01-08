@@ -11,9 +11,13 @@ csvpath = os.path.join('Resources','budget_data.csv')
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile, delimiter=',')
     next(csvfile) #need to apply 'next' method to iterate past the fields, i.e. do not want length to include 'date'
-    title = 'Total Months:' #string variable set due to syntax error for 'len' when passing string directly into format
+    title1 = 'Financial Analysis'
+    title2 = '----------------------------'
+    title3 = 'Total Months:' #string variable set due to syntax error for 'len' when passing string directly into format
     file = csvfile.readlines()
-print(f'{title} {len(file)}')
+print(title1)
+print(title2)
+print(f'{title3} {len(file)}')
 
 #Part 2: The net total amount of 'Profit/Losses' over the entire period
 with open(csvpath) as csvfile:
@@ -77,9 +81,9 @@ print(f'Greatest Decrease in Profits: {grt_decre_date} $({grt_decre:.2f})')
 
 #Part 4: Export results to a text file
 
-save_path = r"\Users\jrose\OneDrive\Desktop\2020 BootCamp\Homework\Homework3\Python-Challenge\PyBank\Analysis\Analysis.txt"
+file_path = r"\Users\jrose\OneDrive\Desktop\2020 BootCamp\Homework\Homework3\Python-Challenge\PyBank\Analysis\Analysis.txt"
 
-final_analysis = open(save_path, 'w')
+final_analysis = open(file_path, 'w')
 
 results = (f"\nFinancial Analysis\n"
     f"-------------------------\n"
