@@ -1,11 +1,14 @@
 #Import os to create file paths across operating systems
 import os
+
 #Import module for reading CSV files - recall: modules include certain features of Python not downloaded by default
 import csv
+
 #Set variable to path using os module and method join to access csv files
 csvpath = os.path.join('Resources','election_data.csv')
+
 #Apply with statement and open() function; the 'with' statement provides better syntax and automatically closes a file. 
-#open() function returns a file object, here it is used to open the path we set to variable 'csvpath' as a new method csvfile
+#open() function returns a file object
 
 #Part 1: The total number of votes cast
 with open(csvpath) as csvfile: 
@@ -74,7 +77,7 @@ if (l_vote>c_vote) and (l_vote>k_vote) and (l_vote>o_vote):
 if (o_vote>c_vote) and (o_vote>l_vote) and (o_vote>k_vote):
     print("Winner: O'Tooley")
 
-#Part 4: Export results to a text file
+#Part 5: Export results to a text file
 
 save_path = r"\Users\jrose\OneDrive\Desktop\2020 BootCamp\Homework\Homework3\Python-Challenge\PyPoll\Analysis\Analysis.txt"
 
